@@ -1,8 +1,30 @@
-## sp-fx-twitter-demo
+#SPFx Twitter Demo
+## Summary
 
-This is where you include your WebPart documentation.
+The web part is showing tweets from the SharePoint list. 
+Tweets are added to the list via Microsoft Flow
 
-### Building the code
+## MockData
+![Showing mock data on the webpart](./assets/workbench.PNG)
+
+## SharePoint List
+![Showing twitter list on the webpart](./assets/TwitterSite.PNG)
+
+## List settings
+Twitter list have a columns:
+* Title
+* UserName
+* Location
+* ProfileImage
+* Language
+* ScreenName
+* CreatedAt
+
+## Microsoft Flow
+![Microsoft Flow](./assets/Flow.PNG)
+
+
+## Building the code
 
 ```bash
 git clone the repo
