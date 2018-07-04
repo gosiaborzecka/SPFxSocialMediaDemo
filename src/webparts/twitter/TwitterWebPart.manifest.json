@@ -1,6 +1,6 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
-  "id": "1311e430-4c36-47e7-8268-47e9ea354d0b",
+  "id": "19442692-73c3-4a6c-81a8-d63f52e4450b",
   "alias": "TwitterWebPart",
   "componentType": "WebPart",
 

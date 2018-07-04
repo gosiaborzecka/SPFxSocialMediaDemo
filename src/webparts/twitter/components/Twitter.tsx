@@ -1,25 +1,52 @@
 import * as React from 'react';
 import styles from './Twitter.module.scss';
-import { ITwitterProps } from './ITwitterProps';
+import { ITwitterProps, ITwitterPropsState } from './ITwitterProps';
 import { escape } from '@microsoft/sp-lodash-subset';
+import { mockData } from '../../../../lib/webparts/twitter/services/mockData';
+import TweeetList from './TweetList/TweetList';
 
-export default class Twitter extends React.Component<ITwitterProps, {}> {
+export default class Twitter extends React.Component<ITwitterProps, ITwitterPropsState> {
+
+  constructor(props: ITwitterProps) {
+    super(props);
+
+    this.state = {
+      data: []
+    };
+  }
+
   public render(): React.ReactElement<ITwitterProps> {
     return (
-      <div className={ styles.twitter }>
-        <div className={ styles.container }>
-          <div className={ styles.row }>
-            <div className={ styles.column }>
-              <span className={ styles.title }>Welcome to SharePoint!</span>
-              <p className={ styles.subTitle }>Customize SharePoint experiences using Web Parts.</p>
-              <p className={ styles.description }>{escape(this.props.description)}</p>
-              <a href="https://aka.ms/spfx" className={ styles.button }>
-                <span className={ styles.label }>Learn more</span>
-              </a>
-            </div>
-          </div>
-        </div>
+      <div>
+         {
+          this.state.data.map(
+            (item, index) => (
+             <TweeetList
+             Id={item.Id}
+              Title={item.Title}
+              UserName={item.UserName}
+              Location={item.Location}
+              ProfileImage={item.ProfileImage}
+              Language={item.Language}
+              ScreenName={item.ScreenName}
+              CreatedAt={item.CreatedAt}
+              WebPartContext={this.props.webPartContext}
+             />
+            )
+          )
+        }
       </div>
     );
   }
+
+  public async componentDidMount() {
+    this.getMockData();
+  }
+
+  private getMockData() {
+    this.setState({
+      data: mockData
+    })
+  }
+
 }

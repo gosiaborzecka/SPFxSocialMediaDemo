@@ -21,7 +21,7 @@ export default class TwitterWebPart extends BaseClientSideWebPart<ITwitterWebPar
     const element: React.ReactElement<ITwitterProps > = React.createElement(
       Twitter,
       {
-        description: this.properties.description
+        webPartContext: this.context
       }
     );
 

@@ -1,3 +1,10 @@
+import { ITwitterList } from '../interace/ITwitterList';
+import { IWebPartContext } from '@microsoft/sp-webpart-base';
+
 export interface ITwitterProps {
-  description: string;
+  webPartContext: IWebPartContext;
+}
+
+export interface ITwitterPropsState {
+  data: ITwitterList[];
 }
