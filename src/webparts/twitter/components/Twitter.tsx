@@ -4,6 +4,7 @@ import { mockData } from '../services/mockData';
 import TweeetList from './TweetList/TweetList';
 import { EnvironmentType, Environment } from '@microsoft/sp-core-library';
 import { ITwitterList } from '../interace/ITwitterList';
+import { Fabric } from "office-ui-fabric-react/lib/Fabric";
 
 export default class Twitter extends React.Component<ITwitterProps, ITwitterPropsState> {
 
@@ -17,7 +18,7 @@ export default class Twitter extends React.Component<ITwitterProps, ITwitterProp
 
   public render(): React.ReactElement<ITwitterProps> {
     return (
-      <div>
+      <Fabric>
          {
           this.state.data.map(
             (item, index) => (
@@ -35,7 +36,7 @@ export default class Twitter extends React.Component<ITwitterProps, ITwitterProp
             )
           )
         }
-      </div>
+      </Fabric>
     );
   }
 

@@ -1,6 +1,9 @@
 import * as React from 'react';
 import ITweetListProps from './ITweetListProps';
 import styles from './TweetList.module.scss';
+import { Fabric } from 'office-ui-fabric-react/lib/Fabric';
+import { Label } from 'office-ui-fabric-react/lib/Label';
+import { Image, IImageProps, ImageFit } from 'office-ui-fabric-react/lib/Image';
 
 export default class TweeetList extends React.Component<ITweetListProps, {}>{
 
@@ -10,21 +13,23 @@ export default class TweeetList extends React.Component<ITweetListProps, {}>{
 
   public render(): JSX.Element {
     return (
-      <div className={styles.twitterList}>
+      <Fabric className={styles.twitterList}>
         <div className={styles.row}>
           <div className={styles.columns6}>
-            <div className={styles.title}>{this.props.Title}</div>
-            <div className={styles.createdAt}>{this.props.CreatedAt}</div>
-            <div className={styles.language}>Language: {this.props.Language}</div>
+            <Label className={styles.title}>{this.props.Title}</Label>
+            <Label className={styles.createdAt}>{this.props.CreatedAt}</Label>
+            <Label className={styles.language}>Language: {this.props.Language}</Label>
           </div>
           <div className={styles.columns6}>
-            <img className={styles.profileImage} src={this.props.ProfileImage} />
-            <br />
-            <div className={styles.userName}>{this.props.UserName} | @{this.props.ScreenName}</div>
-            <div className={styles.location}>{this.props.Location}</div>
+            <Image
+              src={this.props.ProfileImage}
+              alt={this.props.UserName}
+            />
+            <Label className={styles.userName}>{this.props.UserName} | @{this.props.ScreenName}</Label>
+            <Label className={styles.location}>{this.props.Location}</Label>
           </div>
         </div>
-      </div>
+      </Fabric>
     );
   }
 }
