@@ -1,9 +1,9 @@
 import * as React from 'react';
-import styles from './Twitter.module.scss';
 import { ITwitterProps, ITwitterPropsState } from './ITwitterProps';
-import { escape } from '@microsoft/sp-lodash-subset';
-import { mockData } from '../../../../lib/webparts/twitter/services/mockData';
+import { mockData } from '../services/mockData';
 import TweeetList from './TweetList/TweetList';
+import { EnvironmentType, Environment } from '@microsoft/sp-core-library';
+import { ITwitterList } from '../interace/ITwitterList';
 
 export default class Twitter extends React.Component<ITwitterProps, ITwitterPropsState> {
 
@@ -40,13 +40,28 @@ export default class Twitter extends React.Component<ITwitterProps, ITwitterProp
   }
 
   public async componentDidMount() {
-    this.getMockData();
+    if (Environment.type === EnvironmentType.SharePoint || Environment.type === EnvironmentType.ClassicSharePoint) {
+      this.getData();
+    }
+    else {
+      this.getMockData();
+    }
   }
 
   private getMockData() {
     this.setState({
       data: mockData
     })
+  }
+
+  private async getData() {
+    let _items: ITwitterList[];
+
+    _items = await this.props.spDataService.GetList();
+
+    this.setState({
+      data: _items
+    });
   }
 
 }

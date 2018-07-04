@@ -1,0 +1,40 @@
+@import '~@microsoft/sp-office-ui-fabric-core/dist/sass/SPFabricCore.scss';
+.twitterList{
+  .row {
+    @include ms-Grid-row;
+    max-width: 700px;
+    margin: 5px auto;
+    box-shadow: 0 2px 4px 0 rgba(37, 27, 90, 0.1), 0 25px 50px 0 rgba(37, 27, 90, 0.2);
+
+  }
+  .columns6 {
+    padding-left: 5px;
+    @include ms-Grid-col;
+    @include ms-sm6;
+    @include ms-md6;
+    @include ms-lg6;
+  }
+
+  .title {
+    @include ms-fontSize-xl;
+  }
+  .userName {
+    color: red;
+  }
+  .location {
+    color: blue;
+  }
+  .profileImage {
+    color: pink;
+  }
+  .language {
+    color: green;
+  }
+  .screenName{
+    color: deeppink;
+    vertical-align: middle;
+  }
+  .createdAt {
+    color: purple;
+  }
+}

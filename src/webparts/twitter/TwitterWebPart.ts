@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
-import { Version } from '@microsoft/sp-core-library';
+import { Version, Environment, EnvironmentType } from '@microsoft/sp-core-library';
 import {
   BaseClientSideWebPart,
   IPropertyPaneConfiguration,
@@ -10,18 +10,32 @@ import {
 import * as strings from 'TwitterWebPartStrings';
 import Twitter from './components/Twitter';
 import { ITwitterProps } from './components/ITwitterProps';
+import { SPDataService } from './services/SPDataService';
+import { ISPDataService } from './services/ISPDataService';
 
 export interface ITwitterWebPartProps {
   description: string;
 }
 
 export default class TwitterWebPart extends BaseClientSideWebPart<ITwitterWebPartProps> {
+  private _spDataService: ISPDataService;
+
+  public onInit(): Promise<void> {
+    if (DEBUG && Environment.type === EnvironmentType.Local){
+
+    } else {
+      this._spDataService = new SPDataService(this.context);
+    }
+
+    return super.onInit();
+  }
 
   public render(): void {
     const element: React.ReactElement<ITwitterProps > = React.createElement(
       Twitter,
       {
-        webPartContext: this.context
+        webPartContext: this.context,
+        spDataService: this._spDataService
       }
     );
 
