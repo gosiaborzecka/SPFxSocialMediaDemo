@@ -3,7 +3,7 @@ import ITweetListProps from './ITweetListProps';
 import styles from './TweetList.module.scss';
 import { Fabric } from 'office-ui-fabric-react/lib/Fabric';
 import { Label } from 'office-ui-fabric-react/lib/Label';
-import { Image, IImageProps, ImageFit } from 'office-ui-fabric-react/lib/Image';
+import { Image } from 'office-ui-fabric-react/lib/Image';
 
 export default class TweeetList extends React.Component<ITweetListProps, {}>{
 

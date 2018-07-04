@@ -18,7 +18,7 @@
     "group": { "default": "Other" },
     "title": { "default": "Twitter" },
     "description": { "default": "Twitter description" },
-    "officeFabricIconFontName": "Page",
+    "officeFabricIconFontName": "Emoji",
     "properties": {
       "description": "Twitter"
     }

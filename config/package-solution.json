@@ -1,7 +1,7 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
   "solution": {
-    "name": "sp-fx-twitter-demo-client-side-solution",
+    "name": "SPFx Twitter",
     "id": "14f6ac04-18c0-4577-af67-6554e6373538",
     "version": "1.0.0.0",
     "includeClientSideAssets": true
