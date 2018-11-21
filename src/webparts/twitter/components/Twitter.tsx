@@ -27,7 +27,7 @@ export default class Twitter extends React.Component<ITwitterProps, ITwitterProp
               Title={item.Title}
               UserName={item.UserName}
               Location={item.Location}
-              ProfileImage={item.ProfileImage}
+              ProfileImage={item.ProfileImg}
               Language={item.Language}
               ScreenName={item.ScreenName}
               CreatedAt={item.CreatedAt}
@@ -52,13 +52,13 @@ export default class Twitter extends React.Component<ITwitterProps, ITwitterProp
   private getMockData() {
     this.setState({
       data: mockData
-    })
+    });
   }
 
   private async getData() {
     let _items: ITwitterList[];
 
-    _items = await this.props.spDataService.GetList();
+    _items = await this.props.spDataService.GetList(this.props.twitterList);
 
     this.setState({
       data: _items

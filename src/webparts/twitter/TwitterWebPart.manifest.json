@@ -20,7 +20,6 @@
     "description": { "default": "Twitter description" },
     "officeFabricIconFontName": "Emoji",
     "properties": {
-      "description": "Twitter"
     }
   }]
 }

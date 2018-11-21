@@ -5,6 +5,7 @@ import { ISPDataService } from '../services/ISPDataService';
 export interface ITwitterProps {
   webPartContext: IWebPartContext;
   spDataService: ISPDataService;
+  twitterList: string;
 }
 
 export interface ITwitterPropsState {
